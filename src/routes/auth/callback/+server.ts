@@ -30,7 +30,7 @@ export const GET: RequestHandler = async ({ url, cookies }) => {
 	cookies.set('github_token', tokenData.access_token, {
 		path: '/',
 		httpOnly: true,
-		secure: false,
+		secure: url.protocol === 'https:',
 		sameSite: 'lax',
 		maxAge: 60 * 60 * 24 * 30
 	});
